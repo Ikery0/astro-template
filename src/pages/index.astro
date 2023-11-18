@@ -1,0 +1,39 @@
+---
+import {Meta} from '../js/meta.js';
+import Card from '../components/Card.astro';
+import Card2 from '../components/Card2.astro';
+import Layout from '../layouts/Layout.astro';
+
+const metaObj = Meta.top;
+---
+
+<Layout meta={metaObj}>
+	<main>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+	</main>
+	<div style="padding: 100vh;"></div>
+
+	<ul>
+		<Card href="/" title="こんちわ" body="昼の挨拶です" ></Card>
+		<Card href="/" title="こんちわ" body="昼の挨拶です" ></Card>
+		<Card href="/" title="こんちわ" body="昼の挨拶です" ></Card>
+		<Card2 href="/" title="カード２" body="カード２です" ></Card2>
+		<Card2 href="/" title="カード２" body="カード２です" ></Card2>
+		<Card2 href="/" title="カード２" body="カード２です" ></Card2>
+	</ul>
+
+	<div style="padding: 100vh;"></div>
+
+	<script>
+		import {ScrollObserver} from '../js/lib/scroll';
+		new ScrollObserver('.js-fadeIn', fadeIn, {
+		rootMargin: '-300px 0px -100px 0px',
+		});
+		function fadeIn(el, inview) {
+		inview ? el.classList.add('u-fadeIn') : el.classList.remove('u-fadeIn');
+		}
+	</script>
+</Layout>
+
+<style>
+</style>
